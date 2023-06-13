@@ -4,15 +4,124 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".MainActivity">
+    tools:context=".activities.MainActivity">
 
     <TextView
+        android:id="@+id/txtAppTitle"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:layout_marginTop="3dp"
+        android:fontFamily="casual"
+        android:gravity="center"
+        android:text="@string/appTitle"
+        android:textColor="#131313"
+        android:textSize="55sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
+    <Button
+        android:id="@+id/btnEquationsA"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="170dp"
+        android:gravity="center"
+        android:text="@string/equationsA"
+        android:textAllCaps="false"
+        app:layout_constraintEnd_toEndOf="@+id/txtAppTitle"
+        app:layout_constraintStart_toStartOf="@+id/txtAppTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppTitle" />
+
+    <Button
+        android:id="@+id/btnEquationsB"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/equationsB"
+        app:layout_constraintEnd_toEndOf="@+id/btnEquationsA"
+        app:layout_constraintStart_toStartOf="@+id/btnEquationsA"
+        app:layout_constraintTop_toBottomOf="@+id/btnEquationsA" />
+
+    <Button
+        android:id="@+id/btnSuitability"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:text="@string/suitability_actions"
+        app:layout_constraintEnd_toEndOf="@+id/btnEquationsB"
+        app:layout_constraintStart_toStartOf="@+id/btnEquationsB"
+        app:layout_constraintTop_toBottomOf="@+id/btnEquationsB" />
+
+    <Button
+        android:id="@+id/btnAbout"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#28912C"
+        android:text="@string/about"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnSuitability"
+        app:layout_constraintHorizontal_bias="0.308"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/btnSuitability"
+        app:layout_constraintVertical_bias="0.538" />
+
+    <Button
+        android:id="@+id/btnProfile"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="210dp"
+        android:layout_marginEnd="80dp"
+        android:layout_marginBottom="30dp"
+        android:backgroundTint="#314ADA"
+        android:text="@string/profile"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.661"
+        app:layout_constraintStart_toEndOf="@+id/btnSuitability"
+        app:layout_constraintTop_toBottomOf="@+id/btnSuitability" />
+
+    <Button
+        android:id="@+id/btnLogOut"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="160dp"
+        android:layout_marginBottom="60dp"
+        android:backgroundTint="#EC0505"
+        android:text="@string/logOut"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/btnSuitability"
+        app:layout_constraintHorizontal_bias="0.568"
+        app:layout_constraintStart_toStartOf="@+id/btnSuitability"
+        app:layout_constraintTop_toBottomOf="@+id/btnSuitability"
+        app:layout_constraintVertical_bias="0.076" />
+
+    <TextView
+        android:id="@+id/txtDate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="1dp"
+        android:gravity="center"
+        android:textSize="21sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtAppTitle"
+        app:layout_constraintStart_toStartOf="@+id/txtAppTitle"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppTitle" />
+
+    <TextView
+        android:id="@+id/txtChooseCategory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="130dp"
+        android:gravity="center"
+        android:text="@string/choose_categ"
+        android:textColor="#101010"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtDate"
+        app:layout_constraintStart_toStartOf="@+id/txtDate"
+        app:layout_constraintTop_toBottomOf="@+id/txtAppTitle" />
 </androidx.constraintlayout.widget.ConstraintLayout>
