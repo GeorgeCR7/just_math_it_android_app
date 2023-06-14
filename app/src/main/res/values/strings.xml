@@ -1,6 +1,18 @@
 <resources>
     <string name="app_name">justMathIt</string>
 
+    <!-- Login Activity -->
+    <string name="login">Σύνδεση</string>
+    <string name="new_user">Νέος χρήστης; Εγγραφή εδώ!</string>
+    <string name="forgot_pass">Ξέχασες τον κωδικό σού;</string>
+
+    <!-- Register Activity -->
+    <string name="register">Εγγραφή</string>
+    <string name="old_user">Ήδη χρήστης; Σύνδεση εδώ!</string>
+
+    <!-- Forgot Password Activity -->
+    <string name="enter_mail_app">Email στην εφαρμογή...</string>
+    <string name="recover">Ανάκτηση κωδικού</string>
 
     <!-- Main Activity -->
     <string name="appTitle">Just Math It!</string>
@@ -11,8 +23,6 @@
     <string name="logOut">Έξοδος</string>
     <string name="about">Σχετικά</string>
     <string name="profile">Προφίλ</string>
-
-
     <string name="monday">Δευτέρα</string>
     <string name="tuesday">Τρίτη</string>
     <string name="wednesday">Τετάρη</string>
@@ -25,7 +35,6 @@
     <string name="theory">Θεωρία</string>
     <string name="quiz">Κουίζ</string>
     <string name="back">Πίσω</string>
-
     <string name="theory_first">Πρώτα διάβασε την</string>
     <string name="then_quiz">...και στην συνέχεια κάνε το</string>
     <string name="good_luck">Καλή επιτυχία! (το έχεις)</string>

@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
@@ -15,24 +14,28 @@ public class CategoryActivity extends AppCompatActivity {
 
     TextView txtCategoryTitle;
     
-    Button btnTheory, btnQuiz, btnBackProfile;
+    Button btnTheory, btnQuiz, btnBackCategory;
+
+    String category;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_category);
 
+        Bundle extras = getIntent().getExtras();
+        if (extras != null){
+            category = extras.getString("CATEGORY");
+        }
+
         txtCategoryTitle = findViewById(R.id.txtCategoryTitle);
+        txtCategoryTitle.setText(category);
+        txtCategoryTitle.setPaintFlags(txtCategoryTitle.getPaintFlags() | Paint.UNDERLINE_TEXT_FLAG);
 
         btnTheory = findViewById(R.id.btnTheory);
         btnQuiz = findViewById(R.id.btnQuiz);
-        btnBackProfile = findViewById(R.id.btnBackProfile);
+        btnBackCategory = findViewById(R.id.btnBackCategory);
 
-        Bundle extras = getIntent().getExtras();
-        if (extras != null){
-            txtCategoryTitle.setText(extras.getString("CATEGORY"));
-            txtCategoryTitle.setPaintFlags(txtCategoryTitle.getPaintFlags() |   Paint.UNDERLINE_TEXT_FLAG);
-        }
 
         btnTheory.setOnClickListener(view -> {
 
@@ -42,7 +45,7 @@ public class CategoryActivity extends AppCompatActivity {
 
         });
 
-        btnBackProfile.setOnClickListener(view -> {
+        btnBackCategory.setOnClickListener(view -> {
             Intent intent = new Intent(CategoryActivity.this, MainActivity.class);
             startActivity(intent);
             finish();
