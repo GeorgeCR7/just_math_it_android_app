@@ -38,11 +38,17 @@ public class CategoryActivity extends AppCompatActivity {
 
 
         btnTheory.setOnClickListener(view -> {
-
+            Intent intent = new Intent(CategoryActivity.this, TheoryActivity.class);
+            intent.putExtra("THEORY_TYPE", category);
+            startActivity(intent);
+            finish();
         });
 
         btnQuiz.setOnClickListener(view -> {
-
+            Intent intent = new Intent(CategoryActivity.this, QuizActivity.class);
+            intent.putExtra("QUIZ_TYPE", category);
+            startActivity(intent);
+            finish();
         });
 
         btnBackCategory.setOnClickListener(view -> {

@@ -5,13 +5,16 @@
     <string name="login">Σύνδεση</string>
     <string name="new_user">Νέος χρήστης; Εγγραφή εδώ!</string>
     <string name="forgot_pass">Ξέχασες τον κωδικό σού;</string>
+    <string name="email">Email...</string>
+    <string name="password">Κωδικός...</string>
 
     <!-- Register Activity -->
     <string name="register">Εγγραφή</string>
     <string name="old_user">Ήδη χρήστης; Σύνδεση εδώ!</string>
+    <string name="password_again">Κωδικός ξανά...</string>
 
     <!-- Forgot Password Activity -->
-    <string name="enter_mail_app">Email στην εφαρμογή...</string>
+    <string name="enter_mail_app">Το email σού, στην εφαρμογή...</string>
     <string name="recover">Ανάκτηση κωδικού</string>
 
     <!-- Main Activity -->
