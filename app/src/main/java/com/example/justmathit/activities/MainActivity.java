@@ -8,6 +8,7 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 
+import com.example.justmathit.AboutWindow;
 import com.example.justmathit.R;
 
 import java.time.DayOfWeek;
@@ -62,16 +63,23 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnAbout.setOnClickListener(view -> {
-
+            showAboutWindow();
         });
 
         btnProfile.setOnClickListener(view -> {
-
+            Intent intent = new Intent(MainActivity.this, ProfileActivity.class);
+            startActivity(intent);
+            finish();
         });
 
         btnLogOut.setOnClickListener(view -> {
 
         });
+    }
+
+    private void showAboutWindow () {
+        AboutWindow aboutWindow = new AboutWindow();
+        aboutWindow.show(getSupportFragmentManager(), "About Window");
     }
 
     private String setCurrentDate(){

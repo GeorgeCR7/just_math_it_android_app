@@ -11,7 +11,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginStart="177dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="40dp"
         android:layout_marginEnd="176dp"
         android:gravity="center"
         android:textColor="#0C0C0C"
@@ -25,7 +25,7 @@
         android:id="@+id/btnTheory"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="270dp"
         android:text="@string/theory"
         app:layout_constraintEnd_toEndOf="@+id/txtCategoryTitle"
         app:layout_constraintStart_toStartOf="@+id/txtCategoryTitle"
@@ -38,7 +38,7 @@
         android:layout_marginTop="80dp"
         android:text="@string/quiz"
         app:layout_constraintEnd_toEndOf="@+id/btnTheory"
-        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintHorizontal_bias="0.3"
         app:layout_constraintStart_toStartOf="@+id/btnTheory"
         app:layout_constraintTop_toBottomOf="@+id/btnTheory" />
 
@@ -46,9 +46,46 @@
         android:id="@+id/btnBackProfile"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginTop="250dp"
+        android:layout_marginTop="70dp"
         android:backgroundTint="#EC0505"
         android:text="@string/back"
+        app:layout_constraintEnd_toEndOf="@+id/txtGoodLuck"
+        app:layout_constraintStart_toStartOf="@+id/txtGoodLuck"
+        app:layout_constraintTop_toBottomOf="@+id/txtGoodLuck" />
+
+    <TextView
+        android:id="@+id/txtTheoryFirst"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="230dp"
+        android:text="@string/theory_first"
+        android:textSize="27sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtCategoryTitle"
+        app:layout_constraintStart_toStartOf="@+id/txtCategoryTitle"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtThenDoQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:text="@string/then_quiz"
+        android:textSize="25sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/btnTheory"
+        app:layout_constraintStart_toStartOf="@+id/btnTheory"
+        app:layout_constraintTop_toBottomOf="@+id/btnTheory" />
+
+    <TextView
+        android:id="@+id/txtGoodLuck"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="107dp"
+        android:gravity="center"
+        android:text="@string/good_luck"
+        android:textSize="30sp"
+        android:textStyle="bold"
         app:layout_constraintEnd_toEndOf="@+id/btnQuiz"
         app:layout_constraintStart_toStartOf="@+id/btnQuiz"
         app:layout_constraintTop_toBottomOf="@+id/btnQuiz" />

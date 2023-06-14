@@ -26,5 +26,9 @@
     <string name="quiz">Κουίζ</string>
     <string name="back">Πίσω</string>
 
+    <string name="theory_first">Πρώτα διάβασε την</string>
+    <string name="then_quiz">...και στην συνέχεια κάνε το</string>
+    <string name="good_luck">Καλή επιτυχία! (το έχεις)</string>
+
 
 </resources>
