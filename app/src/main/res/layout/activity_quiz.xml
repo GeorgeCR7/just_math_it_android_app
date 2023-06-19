@@ -6,4 +6,106 @@
     android:layout_height="match_parent"
     tools:context=".activities.QuizActivity">
 
+    <TextView
+        android:id="@+id/txtQuizTypeLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="25dp"
+        android:layout_marginEnd="179dp"
+        android:gravity="center"
+        android:textColor="#2C42BF"
+        android:textSize="33sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtQuestionNumber"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="115dp"
+        android:gravity="center"
+        android:textColor="#EC0D0D"
+        android:textSize="28sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtQuizTypeLabel"
+        app:layout_constraintStart_toStartOf="@+id/txtQuizTypeLabel"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/txtQuestionPronun"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:gravity="center"
+        android:textColor="#070707"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/txtQuestionNumber"
+        app:layout_constraintStart_toStartOf="@+id/txtQuestionNumber"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestionNumber" />
+
+    <RadioGroup
+        android:id="@+id/rdGroupOptions"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginTop="70dp"
+        android:layout_marginEnd="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/txtQuestionPronun">
+
+        <RadioButton
+            android:id="@+id/rdBtnOptionA"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#050505"
+            android:textSize="21sp" />
+
+        <RadioButton
+            android:id="@+id/rdBtnOptionB"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#050505"
+            android:textSize="21sp" />
+
+        <RadioButton
+            android:id="@+id/rdBtnOptionC"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textColor="#050505"
+            android:textSize="21sp" />
+    </RadioGroup>
+
+    <Button
+        android:id="@+id/btnOKQuestion"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:backgroundTint="#15931A"
+        android:gravity="center"
+        android:text="@android:string/ok"
+        android:textSize="16sp"
+        app:layout_constraintEnd_toEndOf="@+id/rdGroupOptions"
+        app:layout_constraintStart_toStartOf="@+id/rdGroupOptions"
+        app:layout_constraintTop_toBottomOf="@+id/rdGroupOptions" />
+
+    <Button
+        android:id="@+id/btnBackQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#EC0505"
+        android:text="@string/back"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+    />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
