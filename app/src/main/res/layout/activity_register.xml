@@ -65,6 +65,7 @@
         android:layout_marginTop="30dp"
         android:gravity="center"
         android:text="@string/register"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/edTxtRegisterPasswordAgain"
         app:layout_constraintStart_toStartOf="@+id/edTxtRegisterPasswordAgain"
         app:layout_constraintTop_toBottomOf="@+id/edTxtRegisterPasswordAgain" />
@@ -76,6 +77,7 @@
         android:layout_marginTop="7dp"
         android:gravity="center"
         android:text="@string/old_user"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/btnRegister"
         app:layout_constraintStart_toStartOf="@+id/btnRegister"
         app:layout_constraintTop_toBottomOf="@+id/btnRegister" />

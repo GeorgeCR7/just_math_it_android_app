@@ -30,6 +30,7 @@
         android:gravity="center"
         android:text="@string/equationsA"
         android:textAllCaps="false"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/txtAppTitle"
         app:layout_constraintStart_toStartOf="@+id/txtAppTitle"
         app:layout_constraintTop_toBottomOf="@+id/txtAppTitle" />
@@ -40,6 +41,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/equationsB"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/btnEquationsA"
         app:layout_constraintStart_toStartOf="@+id/btnEquationsA"
         app:layout_constraintTop_toBottomOf="@+id/btnEquationsA" />
@@ -50,6 +52,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="30dp"
         android:text="@string/suitability_actions"
+        android:textSize="16sp"
         app:layout_constraintEnd_toEndOf="@+id/btnEquationsB"
         app:layout_constraintStart_toStartOf="@+id/btnEquationsB"
         app:layout_constraintTop_toBottomOf="@+id/btnEquationsB" />
@@ -60,8 +63,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="210dp"
         android:layout_marginBottom="30dp"
-        android:backgroundTint="#28912C"
+        android:backgroundTint="#15931A"
+        android:gravity="center"
         android:text="@string/about"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/btnSuitability"
         app:layout_constraintHorizontal_bias="0.308"
@@ -77,7 +82,9 @@
         android:layout_marginEnd="80dp"
         android:layout_marginBottom="30dp"
         android:backgroundTint="#314ADA"
+        android:gravity="center"
         android:text="@string/profile"
+        android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.661"
@@ -97,7 +104,8 @@
         app:layout_constraintHorizontal_bias="0.568"
         app:layout_constraintStart_toStartOf="@+id/btnSuitability"
         app:layout_constraintTop_toBottomOf="@+id/btnSuitability"
-        app:layout_constraintVertical_bias="0.076" />
+        app:layout_constraintVertical_bias="0.076"
+        android:textSize="16sp" />
 
     <TextView
         android:id="@+id/txtDate"
