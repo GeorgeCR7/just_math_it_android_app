@@ -62,5 +62,6 @@
     <string name="full_name">Ονοματεπώνυμο</string>
     <string name="age">Ηλικία</string>
     <string name="country">Χώρα</string>
+    <string name="update_user_profile">Επιτυχής ενημέρωση προφίλ!</string>
 
 </resources>
