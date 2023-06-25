@@ -6,9 +6,11 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.justmathit.AboutWindow;
 import com.example.justmathit.R;
+import com.google.firebase.auth.FirebaseAuth;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
@@ -23,6 +25,8 @@ public class MainActivity extends AppCompatActivity {
 
     Button btnEquationsA, btnEquationsB, btnSuitability;
     Button btnLogOut, btnAbout, btnProfile;
+
+    FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,6 +43,8 @@ public class MainActivity extends AppCompatActivity {
         btnLogOut = findViewById(R.id.btnLogOut);
         btnAbout = findViewById(R.id.btnAbout);
         btnProfile = findViewById(R.id.btnProfile);
+
+        mAuth = FirebaseAuth.getInstance();
 
         btnEquationsA.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
@@ -72,7 +78,13 @@ public class MainActivity extends AppCompatActivity {
         });
 
         btnLogOut.setOnClickListener(view -> {
-
+            mAuth.signOut();
+            Toast.makeText(MainActivity.this,
+                    R.string.log_out_main,
+                    Toast.LENGTH_SHORT).show();
+            Intent intent = new Intent(MainActivity.this, LoginActivity.class);
+            startActivity(intent);
+            finish();
         });
     }
 

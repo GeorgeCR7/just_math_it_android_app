@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "804713790468",
+    "project_id": "just-math-it-android-app",
+    "storage_bucket": "just-math-it-android-app.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:804713790468:android:5abf72cce1580628538951",
+        "android_client_info": {
+          "package_name": "com.example.justmathit"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "804713790468-j8dos4otort1dnjapdgna3b3fu3ho238.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAklHMIk06Mu3wEDeYDJZf0Lelbix-dWyQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "804713790468-j8dos4otort1dnjapdgna3b3fu3ho238.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

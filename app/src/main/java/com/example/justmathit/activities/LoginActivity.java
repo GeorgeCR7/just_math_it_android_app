@@ -4,12 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.example.justmathit.R;
+import com.google.firebase.auth.FirebaseAuth;
+
+import java.util.regex.Pattern;
 
 public class LoginActivity extends AppCompatActivity {
 
@@ -18,6 +21,8 @@ public class LoginActivity extends AppCompatActivity {
     EditText edTxtLoginEmail, edTxtLoginPassword;
 
     TextView txtForgotPassword;
+
+    FirebaseAuth mAuth;
 
 
     @Override
@@ -33,10 +38,10 @@ public class LoginActivity extends AppCompatActivity {
 
         txtForgotPassword = findViewById(R.id.txtForgotPassword);
 
+        mAuth = FirebaseAuth.getInstance();
+
         btnLogin.setOnClickListener(view -> {
-            Intent intent = new Intent(LoginActivity.this, MainActivity.class);
-            startActivity(intent);
-            finish();
+            loginUser();
         });
 
         btnGoRegister.setOnClickListener(view -> {
@@ -50,5 +55,54 @@ public class LoginActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    private void loginUser(){
+
+        String email = edTxtLoginEmail.getText().toString();
+        String password = edTxtLoginPassword.getText().toString();
+
+        if (email.isEmpty()) {
+            edTxtLoginEmail.setError(getResources().getString(R.string.email_empty));
+            edTxtLoginEmail.requestFocus();
+            return;
+        } else if (!isEmailValid(email)) {
+            edTxtLoginEmail.setError(getResources().getString(R.string.email_not_valid));
+            edTxtLoginEmail.requestFocus();
+            return;
+        } else if (password.isEmpty()){
+            edTxtLoginPassword.setError(getResources().getString(R.string.password_empty));
+            edTxtLoginPassword.requestFocus();
+            return;
+        } else {
+            mAuth.signInWithEmailAndPassword(email, password).addOnCompleteListener(task -> {
+                if (task.isSuccessful()) {
+                    Toast.makeText(LoginActivity.this,
+                            R.string.log_in_success,
+                            Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                    startActivity(intent);
+                    finish();
+                } else {
+                    Toast.makeText(LoginActivity.this,
+                            R.string.log_in_error + "" + task.getException(),
+                            Toast.LENGTH_SHORT).show();
+                }
+            });
+        }
+    }
+
+    private static boolean isEmailValid (String email) {
+
+        String emailRegex = "^[a-zA-Z0-9_+&*-]+(?:\\."+
+                "[a-zA-Z0-9_+&*-]+)*@" +
+                "(?:[a-zA-Z0-9-]+\\.)+[a-z" +
+                "A-Z]{2,7}$";
+
+        Pattern pat = Pattern.compile(emailRegex);
+        if (email == null) {
+            return false;
+        }
+        return pat.matcher(email).matches();
     }
 }
