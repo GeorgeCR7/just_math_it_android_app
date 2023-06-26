@@ -1,4 +1,4 @@
-package com.example.justmathit;
+package com.example.justmathit.pop_ups;
 
 import android.app.Dialog;
 import android.content.DialogInterface;

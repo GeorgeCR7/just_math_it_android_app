@@ -7,14 +7,17 @@ public class User implements Parcelable {
 
     private String email, name, country, dateCreated, age;
 
+    private String quizzesPassed;
+
     public User() {}
 
-    public User(String email, String name, String country, String dateCreated, String age) {
+    public User(String email, String name, String country, String dateCreated, String age, String quizzesPassed) {
         this.email = email;
         this.name = name;
         this.country = country;
         this.dateCreated = dateCreated;
         this.age = age;
+        this.quizzesPassed = quizzesPassed;
     }
 
     public String getEmail() {
@@ -57,12 +60,21 @@ public class User implements Parcelable {
         this.age = age;
     }
 
+    public String getQuizzesPassed() {
+        return quizzesPassed;
+    }
+
+    public void setQuizzesPassed(String quizzesPassed) {
+        this.quizzesPassed = quizzesPassed;
+    }
+
     protected User(Parcel in) {
         email = in.readString();
         name = in.readString();
         country = in.readString();
         dateCreated = in.readString();
         age = in.readString();
+        quizzesPassed = in.readString();
     }
 
     public static final Creator<User> CREATOR = new Creator<User>() {
@@ -89,5 +101,6 @@ public class User implements Parcelable {
         parcel.writeString(country);
         parcel.writeString(dateCreated);
         parcel.writeString(age);
+        parcel.writeString(quizzesPassed);
     }
 }

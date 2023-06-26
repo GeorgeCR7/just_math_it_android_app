@@ -21,6 +21,8 @@ public class QuizActivity extends AppCompatActivity {
 
     Button btnOKQuestion, btnBackQuiz;
 
+    String quizType;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +32,8 @@ public class QuizActivity extends AppCompatActivity {
         txtQuizTypeLabel = findViewById(R.id.txtQuizTypeLabel);
         Bundle extras = getIntent().getExtras();
         if (extras != null){
-            txtQuizTypeLabel.setText(extras.getString("QUIZ_TYPE"));
+            quizType = extras.getString("QUIZ_TYPE");
+            txtQuizTypeLabel.setText(quizType);
         }
 
         txtQuestionNumber = findViewById(R.id.txtQuestionNumber);

@@ -8,7 +8,7 @@ import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import com.example.justmathit.AboutWindow;
+import com.example.justmathit.pop_ups.AboutWindow;
 import com.example.justmathit.R;
 import com.google.firebase.auth.FirebaseAuth;
 

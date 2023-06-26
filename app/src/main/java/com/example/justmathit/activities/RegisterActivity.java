@@ -105,7 +105,7 @@ public class RegisterActivity extends AppCompatActivity {
                                 R.string.success_register,
                                 Toast.LENGTH_SHORT).show();
                         // Create a new User object, at first, only with email.
-                        User user = new User(email, "", "", setDateCreated(), "");
+                        User user = new User(email, "", "", setDateCreated(), "","");
                         // Store the new User to the Firebase.
                         reference.child(email.replace(".","")).setValue(user);
 
