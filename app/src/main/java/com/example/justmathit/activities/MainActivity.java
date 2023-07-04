@@ -1,22 +1,33 @@
 package com.example.justmathit.activities;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.justmathit.models.User;
 import com.example.justmathit.pop_ups.AboutWindow;
 import com.example.justmathit.R;
 import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.FirebaseDatabase;
+import com.google.firebase.database.ValueEventListener;
 
 import java.time.DayOfWeek;
 import java.time.LocalDate;
 import java.time.format.TextStyle;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.List;
 import java.util.Locale;
 
 public class MainActivity extends AppCompatActivity {
@@ -26,7 +37,12 @@ public class MainActivity extends AppCompatActivity {
     Button btnEquationsA, btnEquationsB, btnSuitability;
     Button btnLogOut, btnAbout, btnProfile;
 
+    // Firebase objects for reading database & authentication.
+    private FirebaseDatabase rootNode;
+    private DatabaseReference reference;
     FirebaseAuth mAuth;
+
+    private ArrayList<User> users;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,7 +60,12 @@ public class MainActivity extends AppCompatActivity {
         btnAbout = findViewById(R.id.btnAbout);
         btnProfile = findViewById(R.id.btnProfile);
 
+        rootNode = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
+
+        users = new ArrayList<>();
+
+        disableProperButtons();
 
         btnEquationsA.setOnClickListener(view -> {
             Intent intent = new Intent(MainActivity.this, CategoryActivity.class);
@@ -86,6 +107,44 @@ public class MainActivity extends AppCompatActivity {
             startActivity(intent);
             finish();
         });
+    }
+
+    private void disableProperButtons() {
+
+        reference = rootNode.getReference().child("Users");
+        reference.addValueEventListener(new ValueEventListener() {
+            @Override
+            public void onDataChange(@NonNull DataSnapshot snapshot) {
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    User user = dataSnapshot.getValue(User.class);
+                    users.add(user);
+                }
+                for (User user: users){
+                    if(user.getEmail().equals(mAuth.getCurrentUser().getEmail())) {
+                        List<String> myList = new ArrayList<>(Arrays.asList(user.getQuizzesPassed().split("")));
+                        if (myList.contains("1")){
+                            btnEquationsA.setBackgroundColor(Color.GREEN);
+                            btnEquationsA.setTextColor(Color.WHITE);
+                            btnEquationsA.setEnabled(false);
+                        }
+                        if (myList.contains("2")){
+                            btnEquationsB.setBackgroundColor(Color.GREEN);
+                            btnEquationsB.setTextColor(Color.WHITE);
+                            btnEquationsB.setEnabled(false);
+                        }
+                        if (myList.contains("3")){
+                            btnSuitability.setBackgroundColor(Color.GREEN);
+                            btnSuitability.setTextColor(Color.WHITE);
+                            btnSuitability.setEnabled(false);
+                        }
+                        break;
+                    }
+                }
+            }
+            @Override
+            public void onCancelled(@NonNull DatabaseError error) {}
+        });
+
     }
 
     private void showAboutWindow () {

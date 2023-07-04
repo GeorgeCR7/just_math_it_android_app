@@ -53,8 +53,12 @@
     <string name="then_quiz">...και στην συνέχεια κάνε το</string>
     <string name="good_luck">Καλή επιτυχία! (το έχεις)</string>
 
-    <!-- Quiz Activity -->
+    <!-- Success & Fail Quiz Activity -->
     <string name="question_label">Ερώτηση</string>
+    <string name="success">Επιτυχία!</string>
+    <string name="fail">Αποτυχία!</string>
+    <string name="success_quiz">Πέρασες το κουίζ με επιτυχία!</string>
+    <string name="fail_quiz">Προσπάθησε ξανά!</string>
 
     <!-- Profile Activity -->
     <string name="save_changes">Αποθήκευση</string>

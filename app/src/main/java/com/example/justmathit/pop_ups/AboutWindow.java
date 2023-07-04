@@ -20,12 +20,7 @@ public class AboutWindow extends AppCompatDialogFragment {
                 .setMessage("University of Piraeus." +
                         "\nApp created & developed by George Asimakopoulos." +
                         "\n\n© Copyright 2023.")
-                .setPositiveButton("OK", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialogInterface, int i) {
-
-                    }
-                });
+                .setPositiveButton("OK", (dialogInterface, i) -> {});
 
         return builder.create();
     }
