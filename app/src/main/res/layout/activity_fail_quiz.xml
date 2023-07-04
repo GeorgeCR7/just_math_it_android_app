@@ -6,4 +6,53 @@
     android:layout_height="match_parent"
     tools:context=".activities.FailQuizActivity">
 
+    <ImageView
+        android:id="@+id/imgViewFailure"
+        android:layout_width="273dp"
+        android:layout_height="314dp"
+        android:layout_marginStart="89dp"
+        android:layout_marginTop="45dp"
+        android:layout_marginEnd="89dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:srcCompat="@drawable/failure_img"/>
+
+    <TextView
+        android:id="@+id/txtFailureMainLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        android:text="@string/fail"
+        android:textColor="#000000"
+        android:textSize="45sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="@+id/imgViewFailure"
+        app:layout_constraintStart_toStartOf="@+id/imgViewFailure"
+        app:layout_constraintTop_toBottomOf="@+id/imgViewFailure" />
+
+    <TextView
+        android:id="@+id/txtFailureQuiz"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="45dp"
+        android:gravity="center"
+        android:text="@string/fail_quiz"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/txtFailureMainLabel"
+        app:layout_constraintStart_toStartOf="@+id/txtFailureMainLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txtFailureMainLabel" />
+
+    <Button
+        android:id="@+id/btnFailOKBackMain"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="90dp"
+        android:text="@android:string/ok"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/txtFailureQuiz"
+        app:layout_constraintTop_toBottomOf="@+id/txtFailureQuiz" />
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

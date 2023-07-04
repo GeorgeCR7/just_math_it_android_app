@@ -57,8 +57,8 @@
     <string name="question_label">Ερώτηση</string>
     <string name="success">Επιτυχία!</string>
     <string name="fail">Αποτυχία!</string>
-    <string name="success_quiz">Πέρασες το κουίζ με επιτυχία!</string>
-    <string name="fail_quiz">Προσπάθησε ξανά!</string>
+    <string name="success_quiz">Πέρασες το κουίζ, μπράβο!</string>
+    <string name="fail_quiz">Προσπάθησε ξανά, δεν πειράζει, το έχεις!</string>
 
     <!-- Profile Activity -->
     <string name="save_changes">Αποθήκευση</string>
