@@ -19,8 +19,12 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
+import java.time.DayOfWeek;
+import java.time.LocalDate;
+import java.time.format.TextStyle;
 import java.util.Calendar;
 import java.util.Date;
+import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {
@@ -150,7 +154,7 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
         if((cal.get(Calendar.MONTH)+1) < 10) {
-            month = ".0" + (cal.get(Calendar.MONTH)+1)+".";
+            month = "0" + (cal.get(Calendar.MONTH)+1)+".";
         } else {
             month = ""+(cal.get(Calendar.MONTH)+1)+".";
         }
