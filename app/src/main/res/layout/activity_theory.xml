@@ -6,4 +6,44 @@
     android:layout_height="match_parent"
     tools:context=".activities.TheoryActivity">
 
+    <TextView
+        android:id="@+id/txtTheoryMainLabel"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="174dp"
+        android:layout_marginTop="15dp"
+        android:layout_marginEnd="179dp"
+        android:gravity="center"
+        android:textColor="#2C42BF"
+        android:textSize="35sp"
+        android:textStyle="bold"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <Button
+        android:id="@+id/btnBackTheory"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="159dp"
+        android:layout_marginEnd="161dp"
+        android:layout_marginBottom="20dp"
+        android:backgroundTint="#EC0505"
+        android:text="@string/back"
+        android:textSize="16sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/txtTheoryContent"
+        android:layout_width="388dp"
+        android:layout_height="556dp"
+        android:layout_marginTop="20dp"
+        android:gravity="center"
+        app:layout_constraintEnd_toEndOf="@+id/txtTheoryMainLabel"
+        app:layout_constraintHorizontal_bias="0.465"
+        app:layout_constraintStart_toStartOf="@+id/txtTheoryMainLabel"
+        app:layout_constraintTop_toBottomOf="@+id/txtTheoryMainLabel" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
