@@ -98,9 +98,24 @@ public class ProfileActivity extends AppCompatActivity {
                     if(user.getEmail().equals(mAuth.getCurrentUser().getEmail())) {
                         txtPrfEmailValue.setText(user.getEmail());
                         txtPrfDateCreatedValue.setText(user.getDateCreated());
-                        edTxtPrfNameValue.setText(user.getName());
-                        edTxtPrfAgeValue.setText(user.getAge());
-                        edTxtPrfCountryValue.setText(user.getCountry());
+
+                        if (user.getName().isEmpty()){
+                            edTxtPrfNameValue.setHint(R.string.no_name);
+                        } else {
+                            edTxtPrfNameValue.setText(user.getName());
+                        }
+
+                        if (user.getAge().isEmpty()){
+                            edTxtPrfAgeValue.setHint(R.string.no_age);
+                        } else {
+                            edTxtPrfAgeValue.setText(user.getAge());
+                        }
+
+                        if (user.getCountry().isEmpty()){
+                            edTxtPrfCountryValue.setHint(R.string.no_country);
+                        } else {
+                            edTxtPrfCountryValue.setText(user.getCountry());
+                        }
                         break;
                     }
                 }
