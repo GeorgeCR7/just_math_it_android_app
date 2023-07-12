@@ -6,6 +6,7 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -23,7 +24,10 @@ import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
+import java.util.List;
+import java.util.stream.Collectors;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -78,6 +82,8 @@ public class QuizActivity extends AppCompatActivity {
         rootNode = FirebaseDatabase.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
+        selectedAnswers.clear();
+
         // Init first question of the current quiz type.
         if (quizType.equals(getString(R.string.equationsA))){
             questionID = 1;
@@ -94,11 +100,11 @@ public class QuizActivity extends AppCompatActivity {
             questionID++;
             rdGroupOptions.clearCheck();
             createQuizUI(questionID);
-            if (quizType.equals(getString(R.string.equationsA)) && questionID == 6){
+            if (quizType.equals(getString(R.string.equationsA)) && questionID == 6) {
                 checkIfTestPassed(selectedAnswers);
-            } else if(quizType.equals(getString(R.string.equationsB)) && questionID == 11){
+            } else if (quizType.equals(getString(R.string.equationsB)) && questionID == 11){
                 checkIfTestPassed(selectedAnswers);
-            } else if(quizType.equals(getString(R.string.suitability_actions)) && questionID == 16){
+            } else if (quizType.equals(getString(R.string.suitability_actions)) && questionID == 16){
                 checkIfTestPassed(selectedAnswers);
             }
         });
@@ -144,33 +150,43 @@ public class QuizActivity extends AppCompatActivity {
 
     private void checkIfTestPassed (ArrayList<String> selectedAnswers){
 
-        ArrayList<String> correctAnswers = new ArrayList<>();
+        if (computeFinalResult(selectedAnswers)){
+            findUserPassedQuizzes();
+            Intent intent = new Intent(QuizActivity.this, SuccessQuizActivity.class);
+            startActivity(intent);
+            finish();
+        } else {
+            Intent intent = new Intent(QuizActivity.this, FailQuizActivity.class);
+            startActivity(intent);
+            finish();
+        }
+    }
 
-        reference = rootNode.getReference().child("Questions");
+    private boolean computeFinalResult(ArrayList<String> selectedAnswers) {
 
-        reference.addValueEventListener(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot snapshot) {
-                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
-                    Question question = dataSnapshot.getValue(Question.class);
-                    correctAnswers.add(question.getAnswer());
-                }
-                correctAnswers.retainAll(selectedAnswers);
-                if (correctAnswers.size() >= 4){
-                    // Update user's list of passed tests.
-                    findUserPassedQuizzes();
-                    Intent intent = new Intent(QuizActivity.this, SuccessQuizActivity.class);
-                    startActivity(intent);
-                    finish();
-                } else {
-                    Intent intent = new Intent(QuizActivity.this, FailQuizActivity.class);
-                    startActivity(intent);
-                    finish();
-                }
-            }
-            @Override
-            public void onCancelled(@NonNull DatabaseError error) {}
-        });
+        ArrayList<String> answersTestA, answersTestB, answersTestC;
+
+        answersTestA = new ArrayList<>();
+        Collections.addAll(answersTestA, "Α", "Γ", "Β", "Β", "Β");
+
+        answersTestB = new ArrayList<>();
+        Collections.addAll(answersTestB, "Α", "Γ", "Β", "Γ", "Α");
+
+        answersTestC = new ArrayList<>();
+        Collections.addAll(answersTestC, "Α", "Γ", "Β", "Α", "Β");
+
+        if (quizType.equals(getString(R.string.equationsA))) {
+            /*Log.v(TAG, "Selected answers from computeFinalResult() method: " + selectedAnswers);
+            Log.v(TAG, "Answers of Test A from computeFinalResult() method: " + answersTestA);
+            Log.v(TAG, "Check if the two list are equal: " + selectedAnswers.equals(answersTestA));*/
+            return selectedAnswers.equals(answersTestA);
+        } else if (quizType.equals(getString(R.string.equationsB))){
+            return selectedAnswers.equals(answersTestB);
+        } else if (quizType.equals(getString(R.string.suitability_actions))){
+            return selectedAnswers.equals(answersTestC);
+        }
+
+        return false;
     }
 
     private void findUserPassedQuizzes() {
@@ -224,6 +240,5 @@ public class QuizActivity extends AppCompatActivity {
         reference.child(mAuth.getCurrentUser().getEmail().replace(".","")).
                 updateChildren(hashMap)
                 .addOnSuccessListener(o -> {});
-
     }
 }

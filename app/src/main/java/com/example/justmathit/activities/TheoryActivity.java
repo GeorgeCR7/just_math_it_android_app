@@ -10,11 +10,15 @@ import android.widget.Button;
 import android.widget.TextView;
 
 import com.example.justmathit.R;
+import com.example.justmathit.models.Question;
+import com.example.justmathit.models.Theory;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 import com.google.firebase.database.ValueEventListener;
+
+import java.util.ArrayList;
 
 public class TheoryActivity extends AppCompatActivity {
 
@@ -26,6 +30,8 @@ public class TheoryActivity extends AppCompatActivity {
 
     private FirebaseDatabase rootNode;
     private DatabaseReference reference;
+
+    private ArrayList<Theory> theoryList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,6 +49,8 @@ public class TheoryActivity extends AppCompatActivity {
         txtTheoryContent = findViewById(R.id.txtTheoryContent);
 
         btnBackTheory = findViewById(R.id.btnBackTheory);
+
+        theoryList = new ArrayList<>();
 
         if (theoryType.equals(getString(R.string.equationsA))){
             createTheoryUI(1);
@@ -66,7 +74,16 @@ public class TheoryActivity extends AppCompatActivity {
         reference.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot snapshot) {
-
+                for (DataSnapshot dataSnapshot : snapshot.getChildren()) {
+                    Theory theory = dataSnapshot.getValue(Theory.class);
+                    theoryList.add(theory);
+                }
+                for (Theory t : theoryList){
+                    if (t.getTheoryID() == theoryID){
+                        txtTheoryContent.setText(t.getTheoryContent());
+                    }
+                    break;
+                }
             }
 
             @Override
