@@ -6,6 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.style.ForegroundColorSpan;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -50,6 +53,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
 
         txtAppTitle = findViewById(R.id.txtAppTitle);
+        colorMainAppTitle(txtAppTitle.getText().toString());
+
         txtDate = findViewById(R.id.txtDate);
         txtDate.setText(setCurrentDate());
 
@@ -150,6 +155,17 @@ public class MainActivity extends AppCompatActivity {
     private void showAboutWindow () {
         AboutWindow aboutWindow = new AboutWindow();
         aboutWindow.show(getSupportFragmentManager(), "About Window");
+    }
+
+    private void colorMainAppTitle (String strTxtAppTitle) {
+        SpannableString ss = new SpannableString(strTxtAppTitle);
+        ForegroundColorSpan fcsRed = new ForegroundColorSpan(Color.RED);
+        ForegroundColorSpan fcsBlue = new ForegroundColorSpan(Color.BLUE);
+        ForegroundColorSpan fcsGreen = new ForegroundColorSpan(Color.GREEN);
+        ss.setSpan(fcsRed, 0,4, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(fcsBlue, 5,9, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        ss.setSpan(fcsGreen, 10,12, Spanned.SPAN_EXCLUSIVE_EXCLUSIVE);
+        txtAppTitle.setText(ss);
     }
 
     private String setCurrentDate(){
