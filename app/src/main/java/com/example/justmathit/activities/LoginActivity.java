@@ -11,6 +11,7 @@ import android.widget.Toast;
 
 import com.example.justmathit.R;
 import com.example.justmathit.models.Question;
+import com.example.justmathit.models.Theory;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -37,6 +38,8 @@ public class LoginActivity extends AppCompatActivity {
 
     private ArrayList<Question> questions;
 
+    private ArrayList<Theory> theoryList;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -54,6 +57,7 @@ public class LoginActivity extends AppCompatActivity {
         mAuth = FirebaseAuth.getInstance();
 
         questions = new ArrayList<>();
+        theoryList = new ArrayList<>();
 
         btnLogin.setOnClickListener(view -> {
             loginUser();
@@ -67,7 +71,7 @@ public class LoginActivity extends AppCompatActivity {
 
         txtForgotPassword.setOnClickListener(view -> {
 
-            reference = FirebaseDatabase.getInstance().getReference("Questions");
+            /*reference = FirebaseDatabase.getInstance().getReference("Questions");
 
             // Quiz 1 - Equations A.
             Question q1 = new Question("1", "3x = 6", "A. x = 2", "Β. x = 5", "Γ. x = -1", "Α");
@@ -132,7 +136,45 @@ public class LoginActivity extends AppCompatActivity {
 
             for (Question q : questions) {
                 reference.child("Question " + q.getQuestionID()).setValue(q);
+            }*/
+
+            reference = FirebaseDatabase.getInstance().getReference("Theory");
+
+            Theory t1 = new Theory(1,
+                    "Για την επίλυση μίας εξίσωσης Α' βαθμού: \n" +
+                            "1. Απαλοίφουμε τους παρονομαστές, αν υπάρχουν.\n" +
+                            "2. Κάνουμε τους πολλαπλασιασμούς, αν υπάρχουν.\n" +
+                            "3. Χωρίζουμε γνωστούς, από αγνώστους.\n" +
+                            "4. Κάνουμε αναγωγή όμοιων όρων (πρόσθεση)\n" +
+                            "5. Διαιρούμε και τα δύο μέλη με το συντελεστή τού αγνώστου.");
+
+            Theory t2 = new Theory(2,
+                    "Για την επίλυση μίας εξίσωσης Β' βαθμού:\n" +
+                            "Έστω η δευτεροβάθμια εξίσωση: αx^2 + βx + γ = 0. \n" +
+                            "Υπολογίζουμε την διακρίνουσα: Δ = β^2 - 4αγ.\n" +
+                            "Λύσεις της εξίσωσης:\n" +
+                            "- Αν Δ>0 => x1,2 = -β+-ρίζα(Δ)/2α, η εξίσωση έχει 2 ρίζες.\n" +
+                            "- Αν Δ=0 => x1,2 = -β/2α, η εξίσωση έχει μία διπλή ρίζα.\n" +
+                            "- Αν Δ<0 => δεν υπάρχουν πραγματικές ρίζες.");
+
+            Theory t3 = new Theory(3,
+                    "Η σειρά των πράξεων, είναι η παρακάτω:\n" +
+                            "1. Παρενθέσεις.\n" +
+                            "2. Δυνάμεις και ρίζες.\n" +
+                            "3. Πολλαπλασιασμοί και διαιρέσεις.\n" +
+                            "4. Προσθέσεις και αφαιρέσεις.");
+
+            theoryList.add(t1);
+            theoryList.add(t2);
+            theoryList.add(t3);
+
+
+            for (Theory theory : theoryList) {
+                reference.child("Theory " + theory.getTheoryID()).setValue(theory);
             }
+
+
+
             /*Intent intent = new Intent(LoginActivity.this, ForgotPasswordActivity.class);
             startActivity(intent);
             finish();*/

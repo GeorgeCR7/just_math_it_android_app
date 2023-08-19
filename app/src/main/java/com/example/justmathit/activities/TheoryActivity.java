@@ -1,12 +1,16 @@
 package com.example.justmathit.activities;
 
+import static java.lang.String.valueOf;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
+import android.util.Log;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.justmathit.R;
@@ -27,6 +31,8 @@ public class TheoryActivity extends AppCompatActivity {
     Button btnBackTheory;
 
     String theoryType;
+
+    ImageView exampleImg;
 
     private FirebaseDatabase rootNode;
     private DatabaseReference reference;
@@ -50,13 +56,18 @@ public class TheoryActivity extends AppCompatActivity {
 
         btnBackTheory = findViewById(R.id.btnBackTheory);
 
+        exampleImg = findViewById(R.id.exampleImg);
+
         theoryList = new ArrayList<>();
 
         if (theoryType.equals(getString(R.string.equationsA))){
+            exampleImg.setImageResource(R.drawable.equationsa_img);
             createTheoryUI(1);
         } else if(theoryType.equals(getString(R.string.equationsB))){
+            exampleImg.setImageResource(R.drawable.equationsb_img);
             createTheoryUI(2);
         } else {
+            exampleImg.setImageResource(R.drawable.proteraiotita_img);
             createTheoryUI(3);
         }
 
@@ -69,7 +80,7 @@ public class TheoryActivity extends AppCompatActivity {
 
     private void createTheoryUI(int theoryID){
 
-        reference = rootNode.getReference().child("Theory");
+        reference = FirebaseDatabase.getInstance().getReference("Theory");
 
         reference.addValueEventListener(new ValueEventListener() {
             @Override
@@ -78,11 +89,12 @@ public class TheoryActivity extends AppCompatActivity {
                     Theory theory = dataSnapshot.getValue(Theory.class);
                     theoryList.add(theory);
                 }
-                for (Theory t : theoryList){
-                    if (t.getTheoryID() == theoryID){
+
+                for (Theory t : theoryList) {
+                   if (t.getTheoryID() == theoryID) {
                         txtTheoryContent.setText(t.getTheoryContent());
+                        break;
                     }
-                    break;
                 }
             }
 
