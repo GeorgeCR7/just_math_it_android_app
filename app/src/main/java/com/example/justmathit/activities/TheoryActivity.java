@@ -1,20 +1,16 @@
 package com.example.justmathit.activities;
 
-import static java.lang.String.valueOf;
-
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.example.justmathit.R;
-import com.example.justmathit.models.Question;
 import com.example.justmathit.models.Theory;
 import com.google.firebase.database.DataSnapshot;
 import com.google.firebase.database.DatabaseError;
@@ -33,8 +29,6 @@ public class TheoryActivity extends AppCompatActivity {
     String theoryType;
 
     ImageView exampleImg;
-
-    private FirebaseDatabase rootNode;
     private DatabaseReference reference;
 
     private ArrayList<Theory> theoryList;

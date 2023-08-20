@@ -5,7 +5,6 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,12 +18,9 @@ import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
 
-import java.time.DayOfWeek;
-import java.time.LocalDate;
-import java.time.format.TextStyle;
+
 import java.util.Calendar;
 import java.util.Date;
-import java.util.Locale;
 import java.util.regex.Pattern;
 
 public class RegisterActivity extends AppCompatActivity {

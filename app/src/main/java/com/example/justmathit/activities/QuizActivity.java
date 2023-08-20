@@ -6,7 +6,6 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.content.Intent;
 import android.graphics.Paint;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.RadioButton;
@@ -26,8 +25,6 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.List;
-import java.util.stream.Collectors;
 
 public class QuizActivity extends AppCompatActivity {
 
@@ -176,9 +173,6 @@ public class QuizActivity extends AppCompatActivity {
         Collections.addAll(answersTestC, "Α", "Γ", "Β", "Α", "Β");
 
         if (quizType.equals(getString(R.string.equationsA))) {
-            /*Log.v(TAG, "Selected answers from computeFinalResult() method: " + selectedAnswers);
-            Log.v(TAG, "Answers of Test A from computeFinalResult() method: " + answersTestA);
-            Log.v(TAG, "Check if the two list are equal: " + selectedAnswers.equals(answersTestA));*/
             return selectedAnswers.equals(answersTestA);
         } else if (quizType.equals(getString(R.string.equationsB))){
             return selectedAnswers.equals(answersTestB);

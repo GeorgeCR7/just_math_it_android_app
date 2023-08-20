@@ -1,7 +1,6 @@
 package com.example.justmathit.pop_ups;
 
 import android.app.Dialog;
-import android.content.DialogInterface;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
